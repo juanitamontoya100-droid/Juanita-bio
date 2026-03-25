@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juanita Montoya · Links</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --pink:    #F2A7C3;
+  --pink-d:  #E8729A;
+  --pink-s:  #FDE8F0;
+  --blue:    #A8D4E8;
+  --blue-d:  #6BAED4;
+  --black:   #111111;
+  --white:   #ffffff;
+  --offwhite:#FBF9F7;
+  --gray:    #888888;
+  --lgray:   #2A2A2A;
+
+  /* ── SPACING SYSTEM (8pt grid) ── */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* ── RADII ── */
+  --radius-card: 16px;
+  --radius-icon: 12px;  /* armoniza con card */
+  --radius-badge: 100px;
+  --radius-btn: 12px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  background: var(--black);
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--space-md) 80px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── BACKGROUND ─────────────────────────────────── */
+.bg-blob1 {
+  position: fixed; top: -100px; left: -100px;
+  width: 500px; height: 500px;
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 55%;
+  background: var(--pink); opacity: 0.10;
+  pointer-events: none; z-index: 0;
+  animation: float1 9s ease-in-out infinite;
+}
+.bg-blob2 {
+  position: fixed; bottom: -120px; right: -100px;
+  width: 420px; height: 420px;
+  border-radius: 45% 55% 40% 60% / 55% 40% 60% 45%;
+  background: var(--blue); opacity: 0.08;
+  pointer-events: none; z-index: 0;
+  animation: float2 11s ease-in-out infinite;
+}
+.bg-blob3 {
+  position: fixed; top: 45%; right: -60px;
+  width: 250px; height: 250px;
+  border-radius: 50%;
+  background: var(--pink); opacity: 0.05;
+  pointer-events: none; z-index: 0;
+}
+@keyframes float1 {
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  50%      { transform: translate(24px,32px) rotate(6deg); }
+}
+@keyframes float2 {
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  50%      { transform: translate(-20px,-24px) rotate(-4deg); }
+}
+
+/* ── STRIPE ─────────────────────────────────────── */
+.stripe {
+  position: fixed; top:0; left:0; right:0; height:4px;
+  background: linear-gradient(90deg, var(--pink) 0%, var(--blue) 100%);
+  z-index: 100;
+}
+
+/* ── CONTAINER ──────────────────────────────────── */
+.container {
+  width: 100%; max-width: 480px;
+  padding-top: 52px;
+  position: relative; z-index: 10;
+}
+
+/* ── PROFILE ────────────────────────────────────── */
+.profile {
+  display: flex; flex-direction: column;
+  align-items: center;
+  padding: var(--space-xl) 0 var(--space-lg);  /* 32px top, 24px bottom — simétrico y más ajustado */
+}
+
+.avatar-wrap { position: relative; margin-bottom: var(--space-md); }
+
+.avatar {
+  width: 92px; height: 92px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 700; color: var(--black);
+  border: 2px solid rgba(242,167,195,0.30);
+  overflow: hidden;
+  box-shadow: 0 0 0 5px rgba(242,167,195,0.07);
+}
+
+.avatar-badge {
+  position: absolute; bottom: 2px; right: 2px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--pink); border: 2px solid var(--black);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+}
+
+.name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px; font-weight: 700;
+  color: var(--white); letter-spacing: 0.5px;
+  margin-bottom: var(--space-xs);   /* 8px */
+  line-height: 1.2;
+}
+.handle {
+  font-size: 11px; font-weight: 500;
+  color: var(--pink); letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);   /* 12px */
+}
+.bio {
+  font-size: 13px; font-weight: 300;
+  color: rgba(255,255,255,0.50);
+  text-align: center; line-height: 1.75;
+  max-width: 280px;
+  margin-bottom: var(--space-md);   /* 16px */
+}
+.bio span { color: var(--pink); font-weight: 500; }
+
+.tags {
+  display: flex; gap: 7px; flex-wrap: wrap;
+  justify-content: center;
+}
+.tag {
+  padding: 6px 14px; border-radius: var(--radius-badge);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  line-height: 1;                    /* evita altura desigual por line-height */
+  display: inline-flex; align-items: center; gap: 5px;  /* emoji + texto alineados */
+  white-space: nowrap;               /* nunca hace wrap interno */
+}
+.tag-pink  { background: var(--pink);  color: var(--black); }
+.tag-blue  { background: var(--blue);  color: var(--black); }
+.tag-out   { border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.38); padding: 5px 13px; /* 1px menos por el border */ }
+
+/* ── DIVIDER ────────────────────────────────────── */
+.divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(242,167,195,0.20), transparent);
+  margin: var(--space-lg) 0;   /* 24px arriba y abajo — consistente en toda la página */
+}
+
+/* ── SECTION LABEL ──────────────────────────────── */
+.section-label {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.22);
+  text-align: center;
+  margin-bottom: var(--space-sm);   /* 12px — mismo en todas las secciones */
+}
+
+/* ── LINK CARDS ─────────────────────────────────── */
+.link-card {
+  display: flex; align-items: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-card);
+  padding: var(--space-sm) var(--space-md);  /* 12px vertical / 16px horizontal — equilibrado */
+  margin-bottom: var(--space-xs);            /* 8px entre cards — más compacto y limpio */
+  text-decoration: none; color: var(--white);
+  transition: all 0.20s ease;
+  cursor: pointer; position: relative; overflow: hidden;
+  min-height: 64px;  /* altura mínima consistente en todas las cards */
+}
+.link-card::before {
+  content: '';
+  position: absolute; left:0; top:0; bottom:0; width:3px;
+  border-radius: var(--radius-card) 0 0 var(--radius-card);
+}
+.link-card.pink::before  { background: var(--pink); }
+.link-card.blue::before  { background: var(--blue); }
+.link-card.green::before { background: #10B981; }
+.link-card.gold::before  { background: #F59E0B; }
+.link-card.white::before { background: rgba(255,255,255,0.25); }
+
+.link-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.30);
+}
+
+.link-icon {
+  width: 40px; height: 40px; border-radius: var(--radius-icon);  /* 12px — armoniza */
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+  margin-right: var(--space-sm);  /* 12px — consistente */
+}
+.pink  .link-icon { background: rgba(242,167,195,0.12); }
+.blue  .link-icon { background: rgba(168,212,232,0.12); }
+.green .link-icon { background: rgba(16,185,129,0.12);  }
+.gold  .link-icon { background: rgba(245,158,11,0.12);  }
+.white .link-icon { background: rgba(255,255,255,0.06); }
+
+.link-text { flex: 1; min-width: 0; }
+.link-title {
+  font-size: 13px; font-weight: 600;
+  color: var(--white);
+  margin-bottom: 3px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  line-height: 1.3;
+}
+.link-sub {
+  font-size: 11px; font-weight: 400;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.4;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.link-badge {
+  padding: 4px 10px; border-radius: var(--radius-badge);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.4px; flex-shrink: 0;
+  margin-left: var(--space-xs);  /* 8px */
+  white-space: nowrap;
+}
+.badge-pink  { background: rgba(242,167,195,0.15); color: var(--pink); }
+.badge-blue  { background: rgba(168,212,232,0.15); color: var(--blue); }
+.badge-green { background: rgba(16,185,129,0.15);  color: #10B981; }
+.badge-gold  { background: rgba(245,158,11,0.15);  color: #F59E0B; }
+.badge-new   { background: rgba(239,68,68,0.18);   color: #EF4444; }
+.badge-free  { background: rgba(16,185,129,0.18);  color: #10B981; }
+
+/* ── SOCIAL ROW ─────────────────────────────────── */
+.social-row {
+  display: flex; justify-content: center;
+  gap: var(--space-sm);       /* 12px */
+  margin-top: var(--space-xl); /* 32px — más separación del bloque anterior */
+  margin-bottom: var(--space-xs);
+}
+.social-btn {
+  width: 44px; height: 44px; border-radius: var(--radius-btn);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; text-decoration: none;
+  transition: all 0.20s;
+}
+.social-btn:hover {
+  background: rgba(242,167,195,0.12);
+  border-color: rgba(242,167,195,0.28);
+  transform: translateY(-2px);
+}
+
+/* ── FOOTER ─────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding-top: var(--space-lg);   /* 24px */
+  padding-bottom: var(--space-xs);
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-weight: 600;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 5px;
+}
+.footer-logo span { color: rgba(242,167,195,0.70); }
+.footer-sub {
+  font-size: 9px; letter-spacing: 2.5px;
+  color: rgba(255,255,255,0.22); text-transform: uppercase;
+}
+
+/* ── MOBILE TWEAKS ───────────────────────────────── */
+@media (max-width: 400px) {
+  .name { font-size: 24px; }
+  .link-title { font-size: 12px; }
+  .link-sub { font-size: 10px; }
+  .bio { font-size: 12px; max-width: 260px; }
+}
+</style>
+</head>
+<body>
+
+<div class="stripe"></div>
+<div class="bg-blob1"></div>
+<div class="bg-blob2"></div>
+<div class="bg-blob3"></div>
+
+<div class="container">
+
+  <!-- ── PROFILE ── -->
+  <div class="profile">
+    <div class="avatar-wrap">
+      <div class="avatar">JM</div>
+      <div class="avatar-badge">✨</div>
+    </div>
+    <div class="name">Juanita Montoya</div>
+    <div class="handle">@juanitamontoya</div>
+    <div class="bio">
+      UGC Creator · Marketing Digital<br>
+      <span>Basada en Dubai 🌍</span><br>
+      Ayudo a creators a monetizar su contenido
+    </div>
+    <div class="tags">
+      <span class="tag tag-pink">UGC Creator</span>
+      <span class="tag tag-blue">Marketing Digital</span>
+      <span class="tag tag-out"><span>🌍</span> Dubai</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── PÁGINA WEB ── -->
+  <div class="section-label">Mi mundo digital ↓</div>
+
+  <a class="link-card pink" href="https://www.nuevaia.com/juanita-ugc?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank">
+    <div class="link-icon">🌐</div>
+    <div class="link-text">
+      <div class="link-title">Mi página web</div>
+      <div class="link-sub">Conóceme · Lista de espera · Todo sobre mí</div>
+    </div>
+    <span class="link-badge badge-pink">Ver</span>
+  </a>
+
+  <div class="divider"></div>
+
+  <!-- ── PRODUCTOS ── -->
+  <div class="section-label">Mis productos digitales ✨</div>
+
+  <a class="link-card pink" href="https://hotmart.com/es/marketplace/productos/ugc-starter-kit-tu-guia-para-conseguir-tu-primer-contrato-con-una-marca/F104999867G" target="_blank">
+    <div class="link-icon">📲</div>
+    <div class="link-text">
+      <div class="link-title">UGC Starter Kit</div>
+      <div class="link-sub">Tu guía para conseguir tu primer contrato</div>
+    </div>
+    <span class="link-badge badge-pink">$12 USD</span>
+  </a>
+
+  <a class="link-card blue" href="https://hotmart.com/es/marketplace/productos/marca-personal-en-7-dias-el-plan-exacto-para-definir-quien-eres-online/L105000314N" target="_blank">
+    <div class="link-icon">🤍</div>
+    <div class="link-text">
+      <div class="link-title">Marca Personal en 7 Días</div>
+      <div class="link-sub">El plan exacto para definir quién eres online</div>
+    </div>
+    <span class="link-badge badge-blue">$12 USD</span>
+  </a>
+
+  <a class="link-card pink" href="https://hotmart.com/es/marketplace/productos/guion-viral-en-5-minutos-formula-para-escribir-videos-que-se-comparten-solos/Q105003012A" target="_blank">
+    <div class="link-icon">🎬</div>
+    <div class="link-text">
+      <div class="link-title">Guion Viral en 5 Minutos</div>
+      <div class="link-sub">Fórmula para videos que se comparten solos</div>
+    </div>
+    <span class="link-badge badge-pink">$9 USD</span>
+  </a>
+
+  <div class="divider"></div>
+
+  <!-- ── COMUNIDAD ── -->
+  <div class="section-label">Únete a mi comunidad ⭕</div>
+
+  <a class="link-card gold" href="https://hotmart.com/es/marketplace/productos/ugc-starter-kit-tu-guia-para-conseguir-tu-primer-contrato-con-una-marca/F104999867G" target="_blank">
+    <div class="link-icon">⭕</div>
+    <div class="link-text">
+      <div class="link-title">The Creator Circle</div>
+      <div class="link-sub">La comunidad para content creators profesionales</div>
+    </div>
+    <span class="link-badge badge-new">NUEVO · $9/mes</span>
+  </a>
+
+  <div class="divider"></div>
+
+  <!-- ── PORTAFOLIO ── -->
+  <div class="section-label">Para marcas 🌍</div>
+
+  <a class="link-card white" href="https://drive.google.com/file/d/15WVmcZYMLJMl1HM3JeqTyjjL9RbJOIG2/view?usp=sharing" target="_blank">
+    <div class="link-icon">🗂️</div>
+    <div class="link-text">
+      <div class="link-title">Mi Portafolio UGC</div>
+      <div class="link-sub">Servicios · Tarifas · Ejemplos de trabajo</div>
+    </div>
+    <span class="link-badge badge-blue">Ver</span>
+  </a>
+
+  <a class="link-card white" href="/cdn-cgi/l/email-protection#551f20343b3c2134383a3b213a2c34646565153238343c397b363a38">
+    <div class="link-icon">✉️</div>
+    <div class="link-text">
+      <div class="link-title">Contacto para marcas</div>
+      <div class="link-sub"><span class="__cf_email__" data-cfemail="216b54404f4855404c4e4f554e584010111161464c40484d0f424e4c">[email&#160;protected]</span></div>
+    </div>
+    <span class="link-badge badge-blue">Email</span>
+  </a>
+
+  <!-- ── SOCIAL ── -->
+  <div class="social-row">
+    <a class="social-btn" href="https://instagram.com/juanitamontoya" target="_blank" title="Instagram">📸</a>
+    <a class="social-btn" href="https://tiktok.com/@juanitamontoya" target="_blank" title="TikTok">🎵</a>
+    <a class="social-btn" href="/cdn-cgi/l/email-protection#84cef1e5eaedf0e5e9ebeaf0ebfde5b5b4b4c4e3e9e5ede8aae7ebe9" title="Email">✉️</a>
+    <a class="social-btn" href="https://www.nuevaia.com/juanita-ugc" target="_blank" title="Web">🌐</a>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="footer">
+    <div class="footer-logo">JUANITA <span>·</span> MONTOYA</div>
+    <div class="footer-sub">UGC Creator · Dubai · 2025</div>
+  </div>
+
+</div>
+</body>
+</html>
